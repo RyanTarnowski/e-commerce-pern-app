@@ -41,7 +41,9 @@ userRouter.post('/login', function(req, res, next) {
     req.logIn(user, function(err) {
       if (err) { return res.status(401).send('Incorrect username or password'); }
 
-      return res.sendStatus(200);
+      console.log({id: user.id, username: user.username});
+      return res.status(200).send({id: user.id, username: user.username});
+      //return res.sendStatus(200);
     });
   })(req, res, next);
 });

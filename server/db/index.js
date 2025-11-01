@@ -25,11 +25,11 @@ const createUser = (req, res) => {
 
     pool.query('INSERT INTO users (username, password, salt) VALUES ($1, $2, $3) RETURNING *', [username, hashed_password.toString('hex'), salt.toString('hex')], (error, results) => {
         if (error) {
-            if (error.code == 23505) return res.status(400).send(`${username} already exists`);          
             console.log(error);
+            if (error.code == 23505) return res.status(400).send(`${username} already exists`);
             return res.status(400).send(error.message);
         }
-        res.status(201).send(`User added with ID: ${results.rows[0].id}`);
+        return res.status(201).send(`User added with ID: ${results.rows[0].id}`);
     });
 }
 

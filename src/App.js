@@ -18,47 +18,12 @@ import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import Orders from './components/Orders/Orders';
 import OrderDetails from './components/OrderDetails/OrderDetails';
+import MenuBar from "./components/MenuBar/MenuBar";
 
 function App() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/register'>Register</Link>
-            </li>
-            <li>
-              <Link to='/login'>Login</Link>
-            </li>
-            <li>
-              <Link to='/account'>Account</Link>
-            </li>
-            <li>
-              <Link to='/products'>Products</Link>
-            </li>
-            <li>
-              <Link to='/products/:productId'>Product Details</Link>
-            </li>
-            <li>
-              <Link to='/cart'>Cart</Link>
-            </li>
-            <li>
-              <Link to='/checkout'>Checkout</Link>
-            </li>
-            <li>
-              <Link to='/orders'>Orders</Link>
-            </li>
-            <li>
-              <Link to='/orders/:orderId'>Order Details</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
+      <MenuBar/>
       <Routes>
         <Route path='/' Component={Home}/>
         <Route path='/register' Component={Register}/>
