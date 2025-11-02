@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userInfo, logoutUser } from '../../store/user/User.actions';
+import { userInfo } from '../../store/user/User.actions';
 import { useNavigate } from 'react-router-dom';
 
 const Account = () => {

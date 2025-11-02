@@ -23,7 +23,7 @@ const Login = () => {
         if (isAuthenticated){
             navigate('/account');
         };
-    }, [isAuthenticated]);
+    }, [isAuthenticated, navigate]);
 
     return (
         <div>

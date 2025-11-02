@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import './App.css';
@@ -30,7 +29,7 @@ function App() {
         <Route path='/login' Component={Login}/>
         <Route path='/account' Component={Account}/>
         <Route path='/products' Component={Products}/>
-        <Route path='/products/:productId' Component={ProductDetails}/>
+        {/* <Route path='/products/:productId' Component={ProductDetails}/> */}
         <Route path='/cart' Component={Cart}/>
         <Route path='/checkout' Component={Checkout}/>
         <Route path='/orders' Component={Orders}/>

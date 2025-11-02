@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../store/user/User.actions';
 import { useNavigate, Link } from 'react-router-dom';
@@ -47,7 +47,7 @@ const MenuBar = () => {
                         {!isAuthenticated && <li><Link to='/register'>Register</Link></li>}
                         {!isAuthenticated && <li><Link to='/login'>Login</Link></li>}
                         <li><Link to='/products'>Products</Link></li>
-                        <li><Link to='/products/:productId'>Product Details</Link></li>
+                        {/* <li><Link to='/products/:productId'>Product Details</Link></li> */}
                         {isAuthenticated && <li><Link to='/account'>Account</Link></li>}
                         {isAuthenticated && <li><Link to='/cart'>Cart</Link></li>}
                         {isAuthenticated && <li><Link to='/checkout'>Checkout</Link></li>}

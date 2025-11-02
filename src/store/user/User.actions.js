@@ -5,7 +5,7 @@ export const registerUser = createAsyncThunk(
     'user/register',
     async (credentials, { rejectWithValue }) => {
     try {
-        const response = await register(credentials);
+        await register(credentials);
 
         return {
             isAuthenticated: false,
@@ -38,7 +38,7 @@ export const logoutUser = createAsyncThunk(
     'user/logoutUser',
     async (user, { rejectWithValue }) => {
     try {
-        const response = await logout();
+        await logout();
 
         return {
             isAuthenticated: false,
