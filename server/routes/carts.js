@@ -8,7 +8,10 @@ const checkUserStatus = (req, res, next) =>{
 };
 
 cartRouter.get('/', checkUserStatus, async (req, res) => {
-    const result = await db.query('SELECT * FROM user_cart WHERE user_id = $1;', [req.user.id]);
+    const result = await db.query(`SELECT user_cart.*, products.name, products.description, products.price
+                                    FROM user_cart
+                                    INNER JOIN products ON user_cart.product_id = products.id 
+                                    WHERE user_id = $1;`, [req.user.id]);
 
     if (result.rowCount > 0) {
         res.status(200).send(result.rows);

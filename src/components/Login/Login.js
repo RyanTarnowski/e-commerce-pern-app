@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/user/User.actions';
+import { getCart } from '../../store/cart/Cart.actions';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
         try {
             e.preventDefault();
             await dispatch(loginUser({username: username, password: password}));
+            await dispatch(getCart());
         } catch(err) {
             console.log(err);
         }

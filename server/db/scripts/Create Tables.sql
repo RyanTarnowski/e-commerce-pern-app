@@ -38,7 +38,8 @@ CREATE TABLE products (
   category_id INT NOT NULL REFERENCES categories (id),
   name VARCHAR(100),
   description VARCHAR(500),
-  price money,
+  --price money,
+  price NUMERIC(11,4),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -46,7 +47,8 @@ CREATE TABLE order_details (
   order_id INT NOT NULL REFERENCES orders (id),
   product_id INT NOT NULL REFERENCES products (id),
   qty INT,
-  price money,
+  --price money,
+  price NUMERIC(11,4),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (order_id, product_id)
 );

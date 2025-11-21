@@ -6,6 +6,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const MenuBar = () => {
     const dispatch = useDispatch();
     const { user, isAuthenticated } = useSelector(state => state.user);
+    const { cartProducts } = useSelector(state => state.cart);
     const navigate = useNavigate();
 
     const handleUserLogout = async (e) => {
@@ -61,7 +62,7 @@ const MenuBar = () => {
                 isAuthenticated &&
                 <div>
                     Welcome {user.username}
-                    <button onClick={handleUserCart}>Cart ({user.id})</button>
+                    <button onClick={handleUserCart}>Cart ({cartProducts.length})</button>
                     <button onClick={handleUserLogout}>Logout</button>
                 </div>
             }

@@ -1,9 +1,64 @@
-
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCart, updateProduct, deleteProduct } from '../../store/cart/Cart.actions';
+import { useNavigate } from 'react-router-dom';
+import CartDetails from '../CartDetails/CartDetails';
 
 const Cart = () => {
+    const dispatch = useDispatch();
+    const { error, cartProducts } = useSelector(state => state.cart);
+    const { isAuthenticated } = useSelector(state => state.user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+            const getCartItems = async () => {
+                try {
+                    if (!isAuthenticated){
+                        navigate('/login');
+                    };
+
+                    await dispatch(getCart());
+                } catch(err) {
+                    console.log(err);
+                }
+            };
+    
+            getCartItems();
+        }, []);
+
+    const onUpdateCart = async (id, qty) => {
+        try {
+            await dispatch(updateProduct({product_id: id, qty: qty}));
+            await dispatch(getCart());
+        } catch(err) {
+            console.log(err);
+        }
+    };
+
+    const onDeleteCart = async (id) => {
+        try {
+            await dispatch(deleteProduct(id));
+            await dispatch(getCart());
+        } catch(err) {
+            console.log(err);
+        }
+    };
 
     return (
-        <h2>Cart</h2>
+        <div> 
+            <h2>Cart</h2>
+            
+            <div>{error}</div>
+
+            {cartProducts.map((product, index) => (
+                <CartDetails
+                    key={product.id} 
+                    product={product}
+                    onUpdateCart={onUpdateCart}
+                    onDeleteCart={onDeleteCart}
+                />
+            ))}
+        </div>             
     );
 }
 
