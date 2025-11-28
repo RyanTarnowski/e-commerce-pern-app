@@ -51,7 +51,7 @@ const MenuBar = () => {
                         {/* <li><Link to='/products/:productId'>Product Details</Link></li> */}
                         {isAuthenticated && <li><Link to='/account'>Account</Link></li>}
                         {isAuthenticated && <li><Link to='/cart'>Cart</Link></li>}
-                        {isAuthenticated && <li><Link to='/checkout'>Checkout</Link></li>}
+                        {/* {isAuthenticated && <li><Link to='/checkout'>Checkout</Link></li>} */}
                         {isAuthenticated && <li><Link to='/orders'>Orders</Link></li>}
                         {isAuthenticated && <li><Link to='/orders/:orderId'>Order Details</Link></li>}
                     </ul>

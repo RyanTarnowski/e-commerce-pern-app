@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCart, updateProduct, deleteProduct } from '../../store/cart/Cart.actions';
+import { getCart, updateProduct, deleteProduct, checkout } from '../../store/cart/Cart.actions';
 import { useNavigate } from 'react-router-dom';
 import CartDetails from '../CartDetails/CartDetails';
+import Checkout from '../Checkout/Checkout';
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -44,6 +45,15 @@ const Cart = () => {
         }
     };
 
+    const onCheckoutCart = async (cardInfo) => {
+        try {
+            await dispatch(checkout(cardInfo));
+            await dispatch(getCart());
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
     return (
         <div> 
             <h2>Cart</h2>
@@ -58,6 +68,8 @@ const Cart = () => {
                     onDeleteCart={onDeleteCart}
                 />
             ))}
+
+            <Checkout onCheckoutCart={onCheckoutCart}/>
         </div>             
     );
 }

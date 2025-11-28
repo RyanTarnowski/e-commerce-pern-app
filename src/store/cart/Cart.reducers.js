@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCart, addProduct, updateProduct, deleteProduct } from './Cart.actions';
+import { getCart, addProduct, updateProduct, deleteProduct, checkout } from './Cart.actions';
 
 const initialState = {
   error: null,
@@ -46,6 +46,12 @@ const cartSlice = createSlice({
       })
       .addCase(deleteProduct.rejected, (state, action) => {
         //state.cartProducts = [];
+        state.error = action.payload;
+      })
+      .addCase(checkout.fulfilled, (state, action) => {
+        state.error = null;
+      })
+      .addCase(checkout.rejected, (state, action) => {
         state.error = action.payload;
       })
   }

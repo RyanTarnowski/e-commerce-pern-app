@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getDBCart, AddProductToCart, UpdateProductInCart, DeleteProductFromCart } from '../../api/cart';
+import { getDBCart, AddProductToCart, UpdateProductInCart, DeleteProductFromCart, CheckoutCart } from '../../api/cart';
 
 export const getCart = createAsyncThunk(
     'cart/getCart',
@@ -58,5 +58,20 @@ export const deleteProduct = createAsyncThunk(
     } catch(err) {
         return rejectWithValue(err.message || 'A network error occurred');
     }
+    }
+);
+
+export const checkout = createAsyncThunk(
+    'cart/checkout',
+    async (cartInfo, {rejectWithValue}) => {
+        try {
+            const response = await CheckoutCart(cartInfo);
+
+            return {
+                checkoutResult: response.data
+            };
+        } catch (err) {
+            return rejectWithValue(err.message || 'A network error occurred');
+        }
     }
 );

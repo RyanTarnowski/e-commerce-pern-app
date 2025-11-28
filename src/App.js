@@ -31,7 +31,7 @@ function App() {
         <Route path='/products' Component={Products}/>
         {/* <Route path='/products/:productId' Component={ProductDetails}/> */}
         <Route path='/cart' Component={Cart}/>
-        <Route path='/checkout' Component={Checkout}/>
+        {/* <Route path='/checkout' Component={Checkout}/> */}
         <Route path='/orders' Component={Orders}/>
         <Route path='/orders/:orderId' Component={OrderDetails}/>
       </Routes>
