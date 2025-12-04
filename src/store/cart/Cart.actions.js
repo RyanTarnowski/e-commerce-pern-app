@@ -4,60 +4,60 @@ import { getDBCart, AddProductToCart, UpdateProductInCart, DeleteProductFromCart
 export const getCart = createAsyncThunk(
     'cart/getCart',
     async (user, { rejectWithValue }) => {
-    try {
-        const response = await getDBCart();
+        try {
+            const response = await getDBCart();
 
-        return {
-            cartProducts: response.data
-        };
-    } catch(err) {
-        return rejectWithValue(err.message || 'A network error occurred');
+            return {
+                cartProducts: response.data
+            };
+        } catch(err) {
+            return rejectWithValue(err.message || 'A network error occurred');
+        }
     }
-  }
 );
 
 export const addProduct = createAsyncThunk(
     'cart/addProduct',
     async (product, { rejectWithValue }) => {
-    try {
-        const response = await AddProductToCart(product);
+        try {
+            const response = await AddProductToCart(product);
 
-        return {
-            cartProducts: response.data
-        };
-    } catch(err) {
-        return rejectWithValue(err.message || 'A network error occurred');
+            return {
+                cartProducts: response.data
+            };
+        } catch(err) {
+            return rejectWithValue(err.message || 'A network error occurred');
+        }
     }
-  }
 );
 
 export const updateProduct = createAsyncThunk(
     'cart/updateProduct',
     async (product, { rejectWithValue }) => {
-    try {
-        const response = await UpdateProductInCart(product);
+        try {
+            const response = await UpdateProductInCart(product);
 
-        return {
-            cartProducts: response.data
-        };
-    } catch(err) {
-        return rejectWithValue(err.message || 'A network error occurred');
-    }
+            return {
+                cartProducts: response.data
+            };
+        } catch(err) {
+            return rejectWithValue(err.message || 'A network error occurred');
+        }
     }
 );
 
 export const deleteProduct = createAsyncThunk(
     'cart/deleteProduct',
     async (product_id, { rejectWithValue }) => {
-    try {
-        const response = await DeleteProductFromCart(product_id);
+        try {
+            const response = await DeleteProductFromCart(product_id);
 
-        return {
-            cartProducts: response.data
-        };
-    } catch(err) {
-        return rejectWithValue(err.message || 'A network error occurred');
-    }
+            return {
+                cartProducts: response.data
+            };
+        } catch(err) {
+            return rejectWithValue(err.message || 'A network error occurred');
+        }
     }
 );
 

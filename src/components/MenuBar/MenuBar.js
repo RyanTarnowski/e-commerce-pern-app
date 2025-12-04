@@ -48,12 +48,9 @@ const MenuBar = () => {
                         {!isAuthenticated && <li><Link to='/register'>Register</Link></li>}
                         {!isAuthenticated && <li><Link to='/login'>Login</Link></li>}
                         <li><Link to='/products'>Products</Link></li>
-                        {/* <li><Link to='/products/:productId'>Product Details</Link></li> */}
                         {isAuthenticated && <li><Link to='/account'>Account</Link></li>}
                         {isAuthenticated && <li><Link to='/cart'>Cart</Link></li>}
-                        {/* {isAuthenticated && <li><Link to='/checkout'>Checkout</Link></li>} */}
                         {isAuthenticated && <li><Link to='/orders'>Orders</Link></li>}
-                        {isAuthenticated && <li><Link to='/orders/:orderId'>Order Details</Link></li>}
                     </ul>
                 </nav>
             </div>

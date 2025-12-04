@@ -23,9 +23,6 @@ const Products = () => {
 
     const onAddToCart = async (id, qty) => {
         try {
-            console.log('onAddToCart');
-            console.log(id);
-            console.log(qty);
             await dispatch(addProduct({product_id: id, qty: qty}));
             await dispatch(getCart());
         } catch(err) {
