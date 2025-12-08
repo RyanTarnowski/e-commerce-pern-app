@@ -40,6 +40,7 @@ const Orders = () => {
     return (
         <div>
             <h2>Orders</h2>
+            {error && <div>{error}</div>}
 
             {orders.map((order, index) => (
                 <div>

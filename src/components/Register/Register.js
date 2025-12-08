@@ -8,11 +8,21 @@ const Register = () => {
     const { error, message } = useSelector(state => state.user);
     const [newUsername, setNewUsername] = useState("");
     const [newPassword, setNewPassword] = useState("");
+    const [newPassword2, setNewPassword2] = useState("");
+    const [error2, setError2] = useState("");
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         try {
             e.preventDefault();
+
+            if(newPassword !== newPassword2){
+                setError2("Passwords do not match");
+                return false;
+            } else {
+                setError2("");
+            }
+
             await dispatch(registerUser({username: newUsername, password: newPassword}));
         } catch(err) {
             console.log(err);
@@ -33,15 +43,18 @@ const Register = () => {
         <div>
             <h2>Register</h2>
 
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleRegister} >
                 <label>Username: </label>
                 <input name="username" id="username" required onChange={(e) => {setNewUsername(e.target.value)}} />
                 <label>Password: </label>
                 <input name="password" id="password" type="password" required minLength={4} maxLength={16} onChange={(e) => {setNewPassword(e.target.value)}}/>
-                <button type="submit">Submit</button>
-
-                {error && <div>{error}</div>}
+                <label>Confirm Password: </label>
+                <input name="password2" id="password2" type="password" required minLength={4} maxLength={16} onChange={(e) => {setNewPassword2(e.target.value)}}/>
+                <button type="submit">Register</button>        
             </form>
+
+            {error && <div>{error}</div>} 
+            {error2 && <div>{error2}</div>} 
 
             {
                 message && 

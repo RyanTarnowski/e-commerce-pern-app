@@ -18,7 +18,7 @@ orderRouter.get('/', checkUserStatus, async (req, res) => {
     if(result.rowCount > 0) {
         res.status(200).send(result.rows);
     } else {
-        res.status(404).send(`No orders found`)
+        res.status(404).send(`No orders found`);
     }
 });
 
