@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/user/User.actions';
 import { getCart } from '../../store/cart/Cart.actions';
 import { useNavigate, Link } from 'react-router-dom';
+import "./Login.css"
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -28,22 +29,32 @@ const Login = () => {
     }, [isAuthenticated, navigate]);
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className='centerdiv'>
+            <div className='login'>
+                <h2>Login</h2>
 
-            <form onSubmit={handleLogin}>
-                <label>Username: </label>
-                <input name="username" id="username" required onChange={(e) => {setUsername(e.target.value)}} />
-                <label>Password: </label>
-                <input name="password" id="password" type="password" required minLength={4} maxLength={16} onChange={(e) => {setPassword(e.target.value)}}/>
-                <button type="submit">Submit</button>
+                <form onSubmit={handleLogin}>
+                    <label for="username" class="inp">
+                        <input type="text" id="username" placeholder="&nbsp;" required onChange={(e) => {setUsername(e.target.value)}}/>
+                        <span class="label">Username</span>
+                        <span class="focus-bg"></span>
+                    </label>
 
-                {error && <div>{error}</div>}
-            </form>
+                    <label for="password" class="inp">
+                        <input type="password" id="password" placeholder="&nbsp;" required minLength={4} maxLength={16} onChange={(e) => {setPassword(e.target.value)}}/>
+                        <span class="label">Password</span>
+                        <span class="focus-bg"></span>
+                    </label>
 
-            <br/>
-            <div>Don't have an account? <Link to='/register'>Register</Link></div>
-        </div> 
+                    <button id="loginbtn" type="submit" className='button-base button-green'>Login</button>
+
+                    {error && <div>{error}</div>}
+                </form>
+
+                <br/>
+                <div>Don't have an account? <Link to='/register'>Register</Link></div>
+            </div> 
+        </div>
     );
 }
 

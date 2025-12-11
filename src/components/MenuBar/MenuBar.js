@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../store/user/User.actions';
 import { useNavigate, Link } from 'react-router-dom';
+import './MenuBar.css';
 
 const MenuBar = () => {
     const dispatch = useDispatch();
@@ -38,12 +39,12 @@ const MenuBar = () => {
     }
 
     return (
-        <div>
-            <h1>e-Commerce PERN app</h1>
+        <div className='navbar'>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
 
-            <div>
                 <nav>
-                    <ul>
+                    <ul class="dropdown-content">
                         <li><Link to='/'>Home</Link></li>
                         {!isAuthenticated && <li><Link to='/register'>Register</Link></li>}
                         {!isAuthenticated && <li><Link to='/login'>Login</Link></li>}
@@ -55,21 +56,25 @@ const MenuBar = () => {
                 </nav>
             </div>
 
-            {
-                isAuthenticated &&
-                <div>
-                    Welcome {user.username}
-                    <button onClick={handleUserCart}>Cart ({cartProducts.length})</button>
-                    <button onClick={handleUserLogout}>Logout</button>
-                </div>
-            }
+            <h1>e-Commerce PERN app</h1>
 
-            {
-                !isAuthenticated &&
-                <div>
-                    <button onClick={handleUserLogin}>Login</button>
-                </div>
-            }
+            <div className='navbarRight'>
+                {
+                    isAuthenticated &&
+                    <div>
+                        <p>Welcome, {user.username}</p>
+                        <button className='cartbtn' onClick={handleUserCart}>Cart ({cartProducts.length})</button>
+                        <button className='logoutbtn' onClick={handleUserLogout}>Logout</button>
+                    </div>
+                }
+
+                {
+                    !isAuthenticated &&
+                    <div>
+                        <button onClick={handleUserLogin}>Login</button>
+                    </div>
+                }
+            </div>
         </div>
     );
 }

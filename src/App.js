@@ -23,15 +23,17 @@ function App() {
   return (
     <Router>
       <MenuBar/>
-      <Routes>
-        <Route path='/' Component={Home}/>
-        <Route path='/register' Component={Register}/>
-        <Route path='/login' Component={Login}/>
-        <Route path='/account' Component={Account}/>
-        <Route path='/products' Component={Products}/>
-        <Route path='/cart' Component={Cart}/>
-        <Route path='/orders' Component={Orders}/>
-      </Routes>
+      <div className="maincontent">
+        <Routes>
+          <Route path='/' Component={Home}/>
+          <Route path='/register' Component={Register}/>
+          <Route path='/login' Component={Login}/>
+          <Route path='/account' Component={Account}/>
+          <Route path='/products' Component={Products}/>
+          <Route path='/cart' Component={Cart}/>
+          <Route path='/orders' Component={Orders}/>
+        </Routes>
+      </div>
     </Router>
   );
 }
