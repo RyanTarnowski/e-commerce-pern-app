@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/product/Product.actions';
 import { addProduct, getCart } from '../../store/cart/Cart.actions';
 import ProductDetail from '../ProductDetails/ProductDetails';
+import "./Products.css"
 
 const Products = () => {
     const dispatch = useDispatch();
@@ -31,21 +32,21 @@ const Products = () => {
     };
 
     return (
-        <div>
+        <div className='products'>
             <h2>Products</h2>
 
             <div>{error}</div>
 
-            {products.map((product, index) => (
-                <div>    
+            <div className='productgrid'>
+                {products.map((product, index) => (    
                     <ProductDetail
                         key={product.id} 
                         product={product}
                         isAuthenticated={isAuthenticated}
                         onAddToCart={onAddToCart}
                     />
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }

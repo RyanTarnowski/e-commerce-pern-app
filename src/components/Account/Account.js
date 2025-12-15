@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userInfo } from '../../store/user/User.actions';
 import { useNavigate } from 'react-router-dom';
+import './Account.css';
+import dateFormat from "dateformat";
 
 const Account = () => {
     const dispatch = useDispatch();
@@ -25,21 +27,21 @@ const Account = () => {
     }, []);
 
     return (
-        <div>
+        <div className='account'>
             <h2>Account</h2>
 
             <div>{error}</div>
             <div>
-                <label>eCommerce app ID: </label>
-                {user.id}
+                <label>eCommerce App ID: </label>
+                <span className='bold'>{user.id}</span>
             </div>
             <div>
                 <label>Username: </label>
-                {user.username}
+                <span className='bold'>{user.username}</span>
             </div>
             <div>
                 <label>Account Create date: </label>
-                {user.created_at}
+                <span className='bold'>{dateFormat(user.created_at, "dddd, mmmm dS, yyyy, h:MM:ss TT") }</span>
             </div>
         </div>
     );

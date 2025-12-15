@@ -48,7 +48,7 @@ const Login = () => {
 
                     <button id="loginbtn" type="submit" className='button-base button-green'>Login</button>
 
-                    {error && <div>{error}</div>}
+                    {error && <div className='error'>{error}</div>}
                 </form>
 
                 <br/>

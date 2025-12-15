@@ -62,7 +62,7 @@ const MenuBar = () => {
                 {
                     isAuthenticated &&
                     <div>
-                        <p>Welcome, {user.username}</p>
+                        <p>Welcome, <Link className='welcomeuser' to='/account'>{user.username}</Link></p>
                         <button className='cartbtn' onClick={handleUserCart}>Cart ({cartProducts.length})</button>
                         <button className='logoutbtn' onClick={handleUserLogout}>Logout</button>
                     </div>

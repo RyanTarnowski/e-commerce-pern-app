@@ -16,6 +16,14 @@
     min-height: 70vh;      /* Ensures the body takes full viewport height */
 }
 
+.error {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 a, a:visited {
   color: #333;
 }
