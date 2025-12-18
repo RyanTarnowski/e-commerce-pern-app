@@ -1,3 +1,30 @@
+# E-Commerce-App
+
+## About The Project
+
+The goal of this project was to build a basic e-commerce REST application.
+
+### Built With
+
+* React JS
+* Express JS
+* Passport JS
+* Postgres SQL
+* Swagger
+
+### Future Development Tasks:
+- [ ] Get dotenv on the app side to utilize environment variables
+- [ ] Use environment variable for API URL
+- [ ] Add images to the products page
+- [ ] Add third-party login options
+- [ ] Improve checkout payment process
+- [ ] Add a processing indication when processing a payment
+- [ ] Add notification that item has been added to cart
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

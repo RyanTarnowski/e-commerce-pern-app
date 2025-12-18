@@ -1,6 +1,5 @@
 # E-Commerce-App---REST-API
 
-
 ## About The Project
 
 The goal of this project was to build a basic e-commerce REST API and document the API with swagger.
