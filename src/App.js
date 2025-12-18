@@ -12,11 +12,8 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Account from './components/Account/Account';
 import Products from './components/Products/Products';
-import ProductDetails from './components/ProductDetails/ProductDetails';
 import Cart from './components/Cart/Cart';
-import Checkout from './components/Checkout/Checkout';
 import Orders from './components/Orders/Orders';
-import OrderDetails from './components/OrderDetails/OrderDetails';
 import MenuBar from "./components/MenuBar/MenuBar";
 
 function App() {

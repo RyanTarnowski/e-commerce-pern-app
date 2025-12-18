@@ -1,0 +1,13 @@
+.cart {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.carttotal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
